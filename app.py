@@ -44,13 +44,16 @@ feeding_size = st.sidebar.number_input(
 )
 
 formula_kcal = st.sidebar.number_input(
-    "Formula Calories per tsp",
+    "Formula Calories per 100ml",
     min_value=0,
-    max_value=10,
-    value=2.5,  # Standard formula calories
-    step=0.1,
-    help="Enter calories per tsp of formula"
+    max_value=100,
+    value=67,  # Standard formula calories
+    step=1,
+    help="Enter calories per 100ml of formula"
 )
+
+# tsp ~ 5ml
+formula_kcal_per_tsp = formula_kcal / 100 * 5
 
 # Main display panel
 st.header("📊 Nutrition Calculations")
@@ -89,7 +92,6 @@ with col2:
 
 st.divider()
 
-
 # Additional helpful information
 st.subheader("📋 Feeding Schedule Breakdown")
 
@@ -122,7 +124,7 @@ with col6:
         
         # Assuming 1 tsp of formula powder adds approximately 2.5 kcal per oz
         # This is a typical approximation - may vary by formula brand
-        kcal_per_tsp = 2.5
+        kcal_per_tsp = formula_kcal_per_tsp
         tsp_needed = extra_kcal_needed / kcal_per_tsp
         
         # Convert to fractions for easier measurement
