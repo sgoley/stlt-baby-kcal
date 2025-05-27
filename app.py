@@ -44,12 +44,12 @@ feeding_size = st.sidebar.number_input(
 )
 
 formula_kcal = st.sidebar.number_input(
-    "Formula Calories per 100ml",
+    "Formula Calories per tsp",
     min_value=0,
-    max_value=100,
-    value=67,  # Standard formula calories
-    step=1,
-    help="Enter calories per 100ml of formula"
+    max_value=10,
+    value=2.5,  # Standard formula calories
+    step=0.1,
+    help="Enter calories per tsp of formula"
 )
 
 # Main display panel
